@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { combineLatest, of } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 import { Cart } from 'src/app/models/cart.model';
 import { Product } from 'src/app/models/product.model';
 import { Wishlist } from 'src/app/models/wishlist.model';
+import { CartService } from 'src/app/services/cart.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -15,7 +18,8 @@ export class CartComponent implements OnInit {
 
   TotalPrice: number;
   constructor(
-    public msgService: MessageService
+    public msgService: MessageService,
+    public cartService: CartService
   ) { }
 
 ngOnInit() {
@@ -30,17 +34,41 @@ ngOnInit() {
             1, 
             product.ProductPrice 
         ));
+        this.updateTotalPrice();
       }
       else{
         this.cartItems[findIndex].Quantity += 1;
+        this.updateTotalPrice();
       }
-      this.updateTotalPrice();
     });
+
+    this.cartService.cartList$ = of(this.cartItems);
+    combineLatest(
+      this.cartService.cartList$,
+      this.cartService.deleteCartItem$
+    ).pipe(
+      map(([cartList, deleteItems])=>{
+        if(deleteItems){
+          var findIndex = cartList.findIndex((cart: Cart)=> cart.ProductId === deleteItems.ProductId);
+          if(findIndex>= 0){
+            cartList.splice(findIndex, 1);
+          } 
+          this.updateTotalPrice();
+          return cartList;
+        }
+        else{
+          this.updateTotalPrice();
+          return cartList.concat(deleteItems);
+        }
+      })
+      ).subscribe();
+
+     
   }
 
   updateTotalPrice(){
     this.TotalPrice = this.cartItems.reduce((prev, curr)=>{
-      return parseFloat((curr.Quantity * curr.Price).toFixed(2));
+      return parseFloat(prev.toFixed(2)) + parseFloat((curr.Quantity * curr.Price).toFixed(2));
     },0)
   }
 

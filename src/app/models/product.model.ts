@@ -2,7 +2,7 @@ export class Product {
     ProductId: number;
     ProductSKU: string;
     ProductPrice: number;
-    ProductDescription: number;
+    ProductDescription: string;
     ProductImageUrl: string;
     ProductTags: string;
 

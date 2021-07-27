@@ -1,15 +1,25 @@
 <div class="card mb-2">
   <div class="card-body">
-    <form  autocomplete="off">
+    <form  autocomplete="off" #form="ngForm" *ngIf="service.formFilter" (submit)="onSubmit()" >
       <div class="form-group">
-        <label for="from">From Date</label>
-        <input type="number" name="from" class="form-control">
+        <label for="from">Product Name : {{service.formFilter.ProductName}}</label>
+        <input type="text" name="ProductName" #ProductName="ngModel" [(ngModel)]="service.formFilter.ProductName" class="form-control">
       </div>
       <div class="form-group">
-        <label for="to">To Date</label>
-        <input type="number" name="to" class="form-control">
+        <label for="from">From {{service.formFilter.FromPrice | currency : 'INR'}}</label>
+        <input type="number" name="FromPrice" #FromPrice="ngModel" [(ngModel)]="service.formFilter.FromPrice" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="to">To {{service.formFilter.ToPrice | currency : 'INR'}}</label>
+        <input type="number" name="FromTo" #FromTo="ngModel" [(ngModel)]="service.formFilter.ToPrice" class="form-control">
       </div>
       <button class="btn btn-outline-dark"><i class="fa fa-filter"></i> Filter by Price</button>
+      <a class="btn btn-outline-dark ml-2" (click)="resetFilter()" 
+      *ngIf="service.formFilter.ProductName.length > 0 || 
+             service.formFilter.FromPrice > 1 || 
+             service.formFilter.ToPrice < 500 || 
+             service.formFilter.ToPrice > 500">
+        <i class="fa fa-repeat "></i> Reset</a>
     </form>
   </div>
 </div>

@@ -8,11 +8,10 @@ import { Product } from '../models/product.model';
 export class MessageService {
 
   subject =  new Subject();
-  subjectWishlist = new Subject();
+  subjectFilter = new Subject();
   constructor() { }
   
   sendMsg(product: Product){
-    debugger
     this.subject.next(product) //Triggering an event
   }
 
@@ -20,12 +19,11 @@ export class MessageService {
     return this.subject.asObservable();
   }
 
-  sendMsgWishlist(product: Product){
-    debugger
-    this.subjectWishlist.next(product) //Triggering an event add or remove wishlist
+  sendMsgFilter({}){
+    this.subjectFilter.next({}) //Triggering an event update filter
   }
 
-  getMsgWishlist(){
-    return this.subjectWishlist.asObservable();
+  getMsgFilter(){
+    return this.subjectFilter.asObservable();
   }
 }

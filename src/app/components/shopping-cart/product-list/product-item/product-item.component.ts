@@ -21,8 +21,4 @@ export class ProductItemComponent implements OnInit {
   addOrEditCart(product: Product){
     this.msgService.sendMsg(product);
   }
-
-  addOrRemoveWishlist(product: Product){
-    this.msgService.sendMsgWishlist(product);
-  }
 }

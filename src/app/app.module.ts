@@ -13,6 +13,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
 import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { MessageService } from './services/message.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MessageService } from './services/message.service';
     ProductItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [ProductService, MessageService],
   bootstrap: [AppComponent]
