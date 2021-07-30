@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productList$ = this.productService.getProductsWithCache;
 
-    this.msgService.getMsgFilter().subscribe(_=>{
+    this.msgService.getMsgFilter().subscribe(_ => {
       this.productList$ = this.productService.productWithFilter;
     });
   }

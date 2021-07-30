@@ -15,6 +15,14 @@ import { ProductService } from './services/product.service';
 import { MessageService } from './services/message.service';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SlidersComponent } from './components/shared/sliders/sliders.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
+import { MatDialogModule } from '@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +34,19 @@ import { FormsModule } from '@angular/forms';
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    SlidersComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatDialogModule
   ],
+  entryComponents:[PaymentComponent],
   providers: [ProductService, MessageService],
   bootstrap: [AppComponent]
 })

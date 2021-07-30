@@ -10,20 +10,20 @@ export class MessageService {
   subject =  new Subject();
   subjectFilter = new Subject();
   constructor() { }
-  
-  sendMsg(product: Product){
-    this.subject.next(product) //Triggering an event
+
+  sendMsg(product: Product) {
+    this.subject.next(product); // Triggering an event
   }
 
-  getMsg(){
+  getMsg() {
     return this.subject.asObservable();
   }
 
-  sendMsgFilter({}){
-    this.subjectFilter.next({}) //Triggering an event update filter
+  sendMsgFilter({}) {
+    this.subjectFilter.next({}); // Triggering an event update filter
   }
 
-  getMsgFilter(){
+  getMsgFilter() {
     return this.subjectFilter.asObservable();
   }
 }

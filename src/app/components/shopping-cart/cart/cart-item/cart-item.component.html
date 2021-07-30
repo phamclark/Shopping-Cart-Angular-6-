@@ -1,4 +1,4 @@
 <div class="cart-item">
-  <span>{{cartItem.ProductName}}</span> <strong> x<span>{{cartItem.Quantity}}</span></strong> : <strong>{{cartItem.Price | currency:'INR'}}</strong>
-  <a class="btn btn-sm btn-outline-dark ml-3 cart-item-remove" (click)="deleteCartItemFunc(cartItem)"><i class="fa fa-remove"></i></a>
+  <span>{{cartItem.ProductName}}</span> <strong> x<span>{{cartItem.Quantity}}</span></strong> : <strong>{{cartItem.Price | currency}}</strong>
+  <a class="btn btn-sm btn-outline-dark ml-3 cart-item-remove float-right" (click)="deleteCartItemFunc(cartItem)"><i class="fa fa-remove"></i></a>
 </div>

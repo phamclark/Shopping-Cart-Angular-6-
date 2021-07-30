@@ -12,7 +12,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartItemComponent implements OnInit {
 
   @Input() cartItem: Cart;
-  
+
   constructor(
     public cartService: CartService
   ) { }
@@ -20,8 +20,7 @@ export class CartItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteCartItemFunc(card: Cart){
-    debugger
+  deleteCartItemFunc(card: Cart) {
     this.cartService.deleteCartItem$.next(card);
   }
 

@@ -6,7 +6,7 @@ export class Product {
     ProductImageUrl: string;
     ProductTags: string;
 
-    constructor(ProductId, ProductSKU, ProductPrice, ProductDescription, ProductImageUrl, ProductTags= ''){
+    constructor(ProductId, ProductSKU, ProductPrice, ProductDescription, ProductImageUrl, ProductTags= '') {
         this.ProductId = ProductId;
         this.ProductSKU = ProductSKU;
         this.ProductPrice = ProductPrice;

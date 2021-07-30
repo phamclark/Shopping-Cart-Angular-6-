@@ -5,7 +5,13 @@
   </li>
   <li class="list-group-item">
     <button class="btn bnt-outline-dark">
-      Total Payment: <strong>{{ TotalPrice | currency:'INR'}}</strong>
+      Total Payment: <strong>{{ TotalPrice | currency}}</strong>
     </button>
+  </li>
+</ul>
+
+<ul class="list-group mt-2" *ngIf="cartItems.length!=0">
+  <li class="list-group-item">
+    <a class="btn btn-outline-dark w-100" (click)="addOrder()"><strong class="text-uppercase">Buy Now</strong></a>
   </li>
 </ul>

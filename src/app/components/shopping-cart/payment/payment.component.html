@@ -1,0 +1,77 @@
+<form autocomplete="false" #form="ngForm" (submit)="submitOrder()">
+  <div class="form-group">
+    <label>Name On Card</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-user"></i>
+        </div>
+      </div>
+      <input type="text" name="Name" #Name="ngModel" [(ngModel)]="paymentFormData.Name" class="form-control"
+      [class.is-invalid]="paymentFormData.Name.length == 0">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-phone"></i>
+        </div>
+      </div>
+      <input type="text" name="Phone" #Phone="ngModel" [(ngModel)]="paymentFormData.Phone" class="form-control"
+      [class.is-invalid]="paymentFormData.Phone.length == 0">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-address-card"></i>
+        </div>
+      </div>
+      <input type="text" name="Address" #Address="ngModel" [(ngModel)]="paymentFormData.Address" class="form-control"
+      [class.is-invalid]="paymentFormData.Address.length == 0">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Creadit Card</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-credit-card-alt"></i>
+        </div>
+      </div>
+      <input type="text" name="CreaditCard" #CreaditCard="ngModel" [(ngModel)]="paymentFormData.CreaditCard" class="form-control" placeholder="0000 0000 0000 0000">
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Month</label>
+          <select name="Month" #Month="ngModel" [(ngModel)]="paymentFormData.Month" class="form-control">
+            <option value="{{i}}" *ngFor="let i of [1,2,3,4,5,6,7,8,10,11,12]">{{i}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Year</label>
+          <select name="Year" #Year="ngModel" [(ngModel)]="paymentFormData.Year" class="form-control">
+            <option value="{{i}}" *ngFor="let i of [2021,2022,2023,2024,2025]">{{i}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>CVV/CVC</label>
+          <input type="text" name="CVV" #CVV="ngModel" [(ngModel)]="paymentFormData.CVV" class="form-control" placeholder="123">
+        </div>
+      </div>
+    </div>
+    
+    <button class="btn btn-dark text-uppercase" [disabled]="!form.form.valid">Order Now</button>
+    <button class="btn btn-outline-dark ml-2" [mat-dialog-close] >Close</button>
+</form>

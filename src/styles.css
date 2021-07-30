@@ -1,6 +1,50 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .cart-item{
     font-size: medium;
 }
 .cart-item-remove{
     font-size: x-small;
+}
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+    width: 180px;
+    height: 320px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    background-image: url('https://mcdn.coolmate.me/image/July2021/homepage2-175_(1).jpg');
+    border-radius: 5px;
+  }
+  
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+
+.bg-blue{
+    background-color: #e0eeea;
+}
+
+.showSnackbar{
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    font-weight: b;
 }

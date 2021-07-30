@@ -18,7 +18,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  addOrEditCart(product: Product){
+  addOrEditCart(product: Product) {
     this.msgService.sendMsg(product);
   }
 }

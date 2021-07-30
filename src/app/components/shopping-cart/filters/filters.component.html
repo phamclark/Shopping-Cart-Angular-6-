@@ -6,14 +6,14 @@
         <input type="text" name="ProductName" #ProductName="ngModel" [(ngModel)]="service.formFilter.ProductName" class="form-control">
       </div>
       <div class="form-group">
-        <label for="from">From {{service.formFilter.FromPrice | currency : 'INR'}}</label>
+        <label for="from">From {{service.formFilter.FromPrice | currency }}</label>
         <input type="number" name="FromPrice" #FromPrice="ngModel" [(ngModel)]="service.formFilter.FromPrice" class="form-control">
       </div>
       <div class="form-group">
-        <label for="to">To {{service.formFilter.ToPrice | currency : 'INR'}}</label>
+        <label for="to">To {{service.formFilter.ToPrice | currency}}</label>
         <input type="number" name="FromTo" #FromTo="ngModel" [(ngModel)]="service.formFilter.ToPrice" class="form-control">
       </div>
-      <button class="btn btn-outline-dark"><i class="fa fa-filter"></i> Filter by Price</button>
+      <button class="btn btn-outline-dark"><i class="fa fa-filter"></i> Filter</button>
       <a class="btn btn-outline-dark ml-2" (click)="resetFilter()" 
       *ngIf="service.formFilter.ProductName.length > 0 || 
              service.formFilter.FromPrice > 1 || 
