@@ -1,12 +1,16 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm header__menu">
   <h5 class="my-0 mr-md-auto font-weight-normal">
     <app-header></app-header>
   </h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <!-- <a class="p-2 text-dark" href="#">Features</a>
-    <a class="p-2 text-dark" href="#">Enterprise</a>
-    <a class="p-2 text-dark" href="#">Support</a>
-    <a class="p-2 text-dark" href="#">Pricing</a> -->
+    <a class="p-2 text-dark" href="#">COLLECTIONS</a>
+    <a class="p-2 text-dark" href="#">SALE</a>
+    <a href="#" class="p-2 text-dark">
+      <!-- <img src="data:image/webp;base64,UklGRqwAAABXRUJQVlA4TKAAAAAvFQAGEKcAEIT/bRMRBNm2qY9gQ3iaOiERBAWCYBjJVpNDPsH0Ta//Zg0wVhDR/wngNW0654HWUUedrjM2mCZgOPaG6eKeZN/cH4LyWy6l7Ht51FpKMSCq3QGTgTuPqjDtQFIEX14yVAFVwBCeIpAVXr6bDNx/EpThmJpQBdW2YyIot7ljsr9UkRW6VNGeFKejg8ncO0SlLqhqLR1VL3Wt" alt=""> -->
+      <i class="fa fa-shopping-cart mr-2" style="font-size: 20px;"></i> <span>({{this.numberOfProducts}})</span> <span> {{TotalPrice | currency}}</span>
+    </a>
   </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
+  <a class="p-2 text-dark" href="#">
+    <i class="fa fa-bell " style="font-size: 20px;"></i>
+  </a>
 </div>

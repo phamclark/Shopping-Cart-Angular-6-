@@ -56,7 +56,6 @@ export class PaymentComponent implements OnInit {
   }
 
   validateForm(){
-    debugger
     if(this.paymentFormData.Name.length === 0 || 
       this.paymentFormData.Address.length === 0 || 
       this.paymentFormData.Phone.length === 0){

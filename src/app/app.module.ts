@@ -21,6 +21,7 @@ import { SlidersComponent } from './components/shared/sliders/sliders.component'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PaymentComponent } from './components/shopping-cart/payment/payment.component';
 import { MatDialogModule } from '@angular/material';
+import { SignalRSocketService } from './services/signalR.socket.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { MatDialogModule } from '@angular/material';
     MatDialogModule
   ],
   entryComponents:[PaymentComponent],
-  providers: [ProductService, MessageService],
+  providers: [ProductService, MessageService, SignalRSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

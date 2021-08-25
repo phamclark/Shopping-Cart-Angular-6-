@@ -19,6 +19,14 @@ export class MessageService {
     return this.subject.asObservable();
   }
 
+  sendMsgNav(product: Product) {
+    this.subject.next(product); // Triggering an event
+  }
+
+  getMsgNav() {
+    return this.subject.asObservable();
+  }
+
   sendMsgFilter({}) {
     this.subjectFilter.next({}); // Triggering an event update filter
   }
